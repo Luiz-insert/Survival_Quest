@@ -11,17 +11,20 @@ function stockLeftCard() {
     let movLeft = 16;
     card.style.transition = '0.200s';
     card.style.transform = 'translate(-1em, 0em)';
+    card.style.rotate = '-0.9deg';
     card.style.backgroundPositionX = '0%';
 }
 function stockRightCard() {
     let movRigth = -16;
     card.style.transition = '0.200s';
     card.style.transform = 'translate(1em, 0em)';
+    card.style.rotate = '0.9deg';
     card.style.backgroundPositionX = '100%';
 }
 function centerCard() {
         card.style.transition = '0.200s';
         card.style.transform = 'translate(0em, 0px)';
+        card.style.rotate = '0deg';
         card.style.backgroundPositionX = '50%';
 }
 
