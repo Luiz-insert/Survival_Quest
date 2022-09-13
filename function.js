@@ -1,3 +1,4 @@
+
 //Status 
 let dir = 0;
 //Animaçoes de transição dos cards
@@ -7,11 +8,15 @@ function stockBackground() {
     card.style.backgroundPositionX = 'center';
 }
 function stockLeftCard() {
-    card.style.transform = 'translate(-1em, 0px)';
+    let movLeft = 16;
+    card.style.transition = '0.200s';
+    card.style.transform = 'translate(-1em, 0em)';
     card.style.backgroundPositionX = '0%';
 }
 function stockRightCard() {
-    card.style.transform = 'translate(1em, 0px)';
+    let movRigth = -16;
+    card.style.transition = '0.200s';
+    card.style.transform = 'translate(1em, 0em)';
     card.style.backgroundPositionX = '100%';
 }
 function centerCard() {
@@ -21,32 +26,46 @@ function centerCard() {
 }
 
 //Quests
-//Quest 0
-function quest0 () {
+//function quest0(alternative)
+
+ function quest0() {
     quest.innerHTML = 'Voce não se lembra de muita coisa... Levanta e começa a olhar em volta';
-    day.innerHTML = 'day' +  ' ' + 1;
-    biome.innerHTML = 'forest';
+    day.innerHTML = 'Dia' +  ' ' + 1;
+    biome.innerHTML = 'Floresta';
     skill.innerHTML = ''
     card.style.backgroundImage = 'url(./q1.jpg)';
     stockBackground();
     
-    card.onmouseout = function () {
-        centerCard();
-        action.innerHTML =''
-    }
-    cardLeft.ontouchmove = function () {
-        stockLeftCard();
-        action.innerHTML = 'Esquerda';
-        dir = 1;
-
-    }
-    cardRight.ontouchmove = function () {
-        stockRightCard();
-        action.innerHTML = 'Direita';
-        dir = 2;
-
+    
+    card.ontouchmove = function (event) {
+        var x = event.touches[0].clientX;
+        if (x < 140) {
+            stockLeftCard();
+            action.innerHTML = 'Esquerda';
+            card.ontouchend = function (event) {
+                if (x > 100) {
+                    centerCard();
+                    action.innerHTML ='';
+                }
+                
+            }
+        }
+        if (x > 140) {
+            stockRightCard();
+            action.innerHTML = 'Direita';
+            card.ontouchend = function (event) {
+                if (x < 180) {
+                    centerCard();
+                    action.innerHTML ='';
+                }
+                
+            }
+        }
     }
 }
+
+    
+
 //Quest 01
 function quest1 () {
     quest.innerHTML = 'Voce segue adentro de uma mata fechada, e os passaros se silenciam de forma suspeita';
