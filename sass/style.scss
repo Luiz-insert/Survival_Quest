@@ -109,15 +109,22 @@ body {
 
 }
 #person1 {
-    background-color: rgb(0, 200, 255)
+    background-image: url(/yana.png);
+    background-color: rgb(0, 200, 255);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 #person2 {
+    background-image: url(/person2);
     background-color: yellow;
 }
 #person3 {
+    background-image: url(/person3);
     background-color: blue;
 }
 #person4 {
+    background-image: url(/person4);
     background-color: green;
 }
 #personName {

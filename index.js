@@ -27,8 +27,16 @@ let screen1 = document.getElementById('cLoading');
 screen3.style.display = 'none';
 screen2.style.display = 'none';
 screen1.onclick = function () {
-    screen1.style.display = 'none'
-    screen2.style.display = 'block'
+    screen1.style.transition = transform  =1000 + 'ms';
+    let countLight = 0;
+    let offLight = screen1.style.opacity = countLight + '%'
+    if (offLight == '0%') {
+        countLight = 90;
+        offLight = countLight + '%'
+        screen1.style.display = 'none'
+        screen2.style.display = 'block'
+    }
+    
 }
 
 
@@ -42,7 +50,7 @@ let person4 = document.getElementById('person4');
 let personName = document.getElementById('personName');
 
 person1.onmouseover = function () {
-    personName.innerHTML = 'Luiz Gusttavo';
+    personName.innerHTML = 'Yana Pysklevitz';
 }
 person2.onmouseover = function () {
     personName.innerHTML = 'Marcos';
@@ -58,7 +66,7 @@ person4.onmouseover = function () {
 }
 person1.onclick = function (){
     quest0();
-    personLuiz();
+    personYana();
     screen2.style.display = 'none';
     screen3.style.display = 'block';
 }
